@@ -1,0 +1,45 @@
+# exercise 6.1
+def compare_function(x,y):
+    if x>y:
+        return 1
+    elif x==y:
+        return 0
+    else:
+        return -1
+compare_function(5,1)
+compare_function(5,5)
+compare_function(0,1)
+
+# exercise 6.8
+def gcd(a,b):
+    r=max(a,b)%min(a,b)
+    if r==0:
+        return min(a,b)
+    else:
+        a=min(a,b)
+        b=min(a,b,r)
+        return gcd(a,b)
+gcd(8445,10)
+gcd(36,1652)
+
+# exercise 7.1
+def print_n(s,n):
+    if n<=0:
+        return
+    while n>0:
+        print(s)
+        n=n-1
+print_n(3,5)
+
+# exercise7.4
+def eval_loop(x):
+    if type(x) != str:
+        print('The input is not a string.')
+    else:
+        while True:
+            input1 = input('>')
+            if input1 == 'done':
+                print(eval(x))
+                break
+eval_loop(1+1)
+eval_loop('1+1')
