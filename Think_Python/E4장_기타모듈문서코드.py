@@ -1,4 +1,4 @@
-### ChapterE4.기타모듈문서코드 ###
+## E4. 기타모듈 ##
 ## random
 import random
 
@@ -16,7 +16,7 @@ random.uniform(-2, 2)
 
 random.normalvariate(100, 15)
 
-random.randint(5, 10)
+random.randint(5, 10) # 정수에 대해 랜덤난수..(5에서 10사이의 )
 
 # random sequence
 
@@ -29,7 +29,7 @@ random.sample(seq, 2)
 
 ## urllib
 
-import urllib.request
+import urllib.request #웹스크래핑하는데 유용함.
 # HTTP request
 req = urllib.request.Request('http://www.wikipedia.org/w/api.php')
 # catching exceptions
@@ -37,7 +37,7 @@ from urllib.error import URLError, HTTPError
 try:
     response = urllib.request.urlopen(req)
 except HTTPError as e:
-    print('The server resturned error code', e.code)
+    print('The server returned error code', e.code)
 except URLError as e:
     print('Failed to reach server at {} for the following reason:\n{}'
           .format(url, e.reason))
@@ -56,7 +56,7 @@ html = content.decode(charset)
 # date object
 from datetime import date
 birthday = date(2004, 11, 5)
-notadate = date(2005, 2, 29)
+notadate = date(2005, 2, 29) #2005년 2월 29일은 없음
 today = date.today()
 today
 
@@ -69,7 +69,7 @@ lunchtime.isoformat()
 precise_time = time(4, 46, 36, 501982)
 precise_time.isoformat()
 
-witching_hour = time(24)
+witching_hour = time(24) #에러뜸
 
 # datetime object
 from datetime import datetime
@@ -86,5 +86,7 @@ lunch_time = datetime.strptime('09:32:00 July 16, 1969',
                                '%H:%M:%S %B %d, %Y')
 print(lunch_time)
 print(lunch_time.strftime('%I:%M %p on %A, %d %b %Y'))
+
+#소문자b는 month에대해 3글자만, 대문자는 다~출력, 대문자 Y는 년도 다 출력, y는 뒤에 두개만.
 
 
