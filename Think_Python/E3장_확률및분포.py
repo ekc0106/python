@@ -120,12 +120,31 @@ make_hist(0.75, 100, 10000)
 
 #[과제 9] <1> U(0,1)에서 난수를 1000개 발생하여 x축에는 표본수 n, y축에는 누적평균을 선그래프로 그리시오.
 # 누적평균값은 n이 커짐에 따라 어떤 값을 수렴하는가?
-#
+import random, math
+from matplotlib import pyplot as plt
+def mean(x):
+    return sum(x) / len(x)
+data = [random.random() for _ in range(1000)]
+xs = range(1001)
+n_mean = [mean(data[0:(i+1)]) for i in range(xs)]
+plt.plot(xs, n_mean,'-')
+plt.show()
+n_mean[-1]
+# 0.5 로 수렴함을 알 수 있다.
 
-#
-#
+
 # <2> random 모듈을 이용하여 숫자 맞추기 게임을 구현하시오.
 #  컴퓨터가 랜덤하게 1과 100사이의 정수를 고르고, 사용자가 1과 100사이의 추측값을 주면 정답과 비교하여 적절한 메시지(가령 크다, 작다, 잘했어요 등)를 주시오.
 # randint 쓰면 되겠지. 루프돌려서... 크다 작다는 이프문해서 그냥 하고.
-#
-#
+from random import randint
+sel_num = str(randint(1,100))
+sel_num
+while True:
+    guess = input('>Guess')
+    if guess > sel_num:
+        print('크다')
+    elif guess < sel_num:
+        print('작다')
+    else:
+        print('잘했어요')
+        break
